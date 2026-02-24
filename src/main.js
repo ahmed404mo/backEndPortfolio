@@ -1,2 +1,2 @@
-import bootstrap from './bootstrap.app.js'
-bootstrap()
+import app from './bootstrap.app.js'
+// app()
