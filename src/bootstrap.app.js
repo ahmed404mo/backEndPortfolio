@@ -54,10 +54,12 @@ import { projectRouter } from './modules/project/index.js';
 import { messageRouter } from './modules/message/index.js';
 import { profileRouter } from './modules/profile/index.js';
 import { skillRouter } from './modules/skill/index.js';
+import cors from 'cors';
 
 const app = express();
 
 // 1. Middleware
+app.use(cors());
 app.use(express.json());
 
 // 2. Database Connection
