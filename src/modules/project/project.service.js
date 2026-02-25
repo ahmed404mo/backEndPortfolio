@@ -35,7 +35,7 @@ throw serverError(err)
 }
 export const deleteProject = async(id)=>{
   try {
-  const projects = await ProjectModel.findByIdAndDelete(id,inputs , {new:true})
+  const projects = await ProjectModel.findByIdAndDelete(id , {new:true})
   if (!projects) {
   throw notFoundExpeption("Project not found ❌")
 }
