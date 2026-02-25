@@ -4,6 +4,7 @@ import { JWT_SECRET } from "../../config/config.service.js"
 
 const authMiddleware = (req, res, next) => {
   try {
+    console.log("JWT_SECRET used by Server:", JWT_SECRET);
     const token = req.header("Authorization")
     
     if (!token) {
