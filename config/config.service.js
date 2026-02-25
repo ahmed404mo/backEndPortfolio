@@ -13,3 +13,4 @@ export const PORT = parseInt(process.env.PORT ?? '3000')
 
 export const GMAIL_USER = process.env.GMAIL_USER;
 export const GMAIL_PASSWORD = process.env.GMAIL_PASSWORD;
+export const TOKEN_SIGNATURE = process.env.TOKEN_SIGNATURE;
