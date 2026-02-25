@@ -106,7 +106,7 @@ app.use("/auth", authRouter);
 app.use("/project", projectRouter);
 app.use("/message", messageRouter);
 app.use("/profile", profileRouter);
-app.use("/skill", skillRouter);
+app.use("/skills", skillRouter);
 
 // 5. Global Error Handling
 app.use(globalErrorHandling);
