@@ -1,2 +1,3 @@
-import app from './bootstrap.app.js'
-// app()
+import app from './bootstrap.app.js';
+
+export default app;
