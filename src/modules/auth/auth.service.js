@@ -89,7 +89,7 @@ import { findOne } from "../../DB/database.repository.js";
 import { UserModel } from "../../DB/models/index.js";
 // ✅ 1. ضفنا generateToken هنا
 import { compareHash, generateHash, generateToken } from "./../../common/utils/security/index.js"; 
-import { EMAIL, PASSWORD, SALT_ROUND, TOKEN_SIGNATURE } from "../../../config/config.service.js";
+import { EMAIL, PASSWORD, SALT_ROUND, JWT_SECRET } from "../../../config/config.service.js";
 
 export const setup = async () => {
     const checkEmailExist = await UserModel.findOne()
@@ -134,7 +134,7 @@ export const login = async (inputs) => {
 
   const token = await generateToken({ 
     payload: { id: user._id, email: user.email }, 
-    secret: TOKEN_SIGNATURE || 'AhmedMokhtar_FullStack_2028_Key'
+    secret: JWT_SECRET || 'AhmedMokhtar_FullStack_2028_Key'
   });
 
   return { token, user };
