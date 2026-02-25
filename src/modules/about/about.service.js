@@ -1,5 +1,5 @@
 import { serverError } from "../../common/utils/response/index.js";
-import { aboutModel } from "../../DB/models/index.js";
+import { aboutModel } from './../../DB/models/index.js';
 
 export const getAboutData = async () => {
   try {
