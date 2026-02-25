@@ -58,10 +58,15 @@ import { skillRouter } from './modules/skill/index.js';
 const app = express();
 
 // 1. Middleware
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept']
+}));
 app.use(express.json());
 
-// 2. Database Connection (مرة واحدة بس مع اصطياد الأخطاء)
+// 2. Database Connection 
 try {
     authenticateDB();
     console.log("✅ Database authentication triggered");
