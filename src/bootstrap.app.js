@@ -83,7 +83,7 @@ app.use(express.json());
 
 // 2. Database Connection 
 try {
-    authenticateDB();
+    await authenticateDB();
     console.log("✅ Database authentication triggered");
 } catch (error) {
     console.error("❌ FATAL DB ERROR:", error.message);
