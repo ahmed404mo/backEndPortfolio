@@ -3,7 +3,7 @@ import { unauthorizedExpeption } from "../common/utils/response/error.response.j
 import { JWT_SECRET } from "../../config/config.service.js"
 
 const authMiddleware = (req, res, next) => {
-  const token = req.header("Autorization")
+  const token = req.header("Authorization")
   if (!token) {
     unauthorizedExpeption("not allowed access to admin")
   } 
