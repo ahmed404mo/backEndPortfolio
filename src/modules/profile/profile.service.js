@@ -15,7 +15,7 @@ export const getProfile = async () => {
 
 export const upsertProfile = async (inputs) => {
   try {
-    const profile = await ProjectModel.findOneAndUpdate(inputs, {
+    const profile = await ProjectModel.findOneAndUpdate({},inputs, {
       new: true,
       upsert: true,
     });

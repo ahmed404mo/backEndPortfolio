@@ -11,13 +11,14 @@ const profileSchema = new mongoose.Schema(
             type :String,
       required:true,
     },
-    avatar:{
-            type :String,
-      required:true,
-    },
     cvLink:{
             type :String,
-    }
+    },
+    avatar: { type: String, required: false },
+    cvLink: { type: String },
+    bio: { type: String },        
+    github: { type: String },       
+    linkedin: { type: String }
   },
   {
     timestamps:true
