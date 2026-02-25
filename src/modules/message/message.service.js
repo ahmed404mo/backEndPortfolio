@@ -32,3 +32,12 @@ export const getAllMessage = async()=>{
   }
 
 }
+
+export const deleteMessage = async (id) => {
+  try {
+    const message = await MessageModel.findByIdAndDelete(id);
+    return message;
+  } catch (error) {
+    throw serverError(error);
+  }
+};

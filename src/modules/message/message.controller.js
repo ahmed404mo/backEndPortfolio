@@ -12,9 +12,14 @@ router.post("/",async(req,res,next)=>{
 })
 
 router.get("/",authMiddleware,async(req,res,next)=>{
-    const message = await messageService.getAllMessage(req.body)
-    return successResponse({res,data:{message}})
+    const messages = await messageService.getAllMessage(req.body)
+    return successResponse({res,data:{messages}})
 
 })
+router.delete("/:id", authMiddleware, async (req, res, next) => {
+    const { id } = req.params;
+    await messageService.deleteMessage(id);
+    return successResponse({ res, message: "Message deleted successfully" });
+});
 
 export default router
