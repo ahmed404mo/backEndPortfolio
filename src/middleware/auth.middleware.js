@@ -4,14 +4,13 @@ import { JWT_SECRET } from "../../config/config.service.js"
 
 const authMiddleware = (req, res, next) => {
   try {
-    console.log("JWT_SECRET used by Server:", JWT_SECRET);
-    const token = req.header("Authorization")
+const authHeader = req.header("Authorization");
+const token = authHeader && authHeader.split(" ")[1]; 
+
+if (!token) return unauthorizedExpeption("No token provided");
+
+const verified = jwt.verify(token, JWT_SECRET);
     
-    if (!token) {
-      return unauthorizedExpeption("not allowed access to admin") // 👈 ضفنا return هنا للأمان
-    } 
-    
-    const verified = jwt.verify(token.replace("Bearer ",""), JWT_SECRET)
     req.user = verified
     next()
     
