@@ -17,6 +17,7 @@ export const createSkill = async(inputs)=>{
   return newSkill
   
 } catch (err) {
+  console.error("🔴 Error in createSkill Service:", err);
 throw serverError(err)
 }
 }
