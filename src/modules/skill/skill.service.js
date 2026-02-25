@@ -13,9 +13,8 @@ throw serverError(err)
 
 export const createSkill = async(inputs)=>{
   try {
-  const createSkill = await skillModel(inputs)
-  createSkill.save()
-  return createSkill
+  const newSkill = await skillModel.create(inputs)
+  return newSkill
   
 } catch (err) {
 throw serverError(err)
