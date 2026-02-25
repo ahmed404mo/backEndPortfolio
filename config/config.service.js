@@ -1,7 +1,11 @@
 import { config as dotenvConfig } from "dotenv";
 import { resolve } from "path";
-
-dotenvConfig({ path: resolve("./config/.env.dev") });
+try {
+  dotenvConfig({ path: resolve("./config/.env.dev") });
+} catch (error) {
+  console.log("⚠️ Dotenv warning (ignored on Vercel):", error.message);
+}
+// dotenvConfig({ path: resolve("./config/.env.dev") });
 
 
 export const DB_URI = process.env.DB_URI;

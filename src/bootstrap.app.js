@@ -94,5 +94,19 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
+app.get('/ping', (req, res) => {
+    res.status(200).json({ 
+        message: "Server is ALIVE! 🚀", 
+        db_status: DB_URI ? "DB_URI is detected ✅" : "DB_URI is MISSING ❌"
+    });
+});
+
+try {
+    authenticateDB();
+    console.log("✅ Database authentication triggered");
+} catch (error) {
+    console.error("❌ FATAL DB ERROR:", error.message);
+}
+
 
 export default app;
