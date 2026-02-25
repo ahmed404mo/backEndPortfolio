@@ -25,8 +25,7 @@ const profileSchema = new mongoose.Schema(
     pageMainTitle: { type: String },
     pageSubtitle: { type: String },
     missionTitle: { type: String },
-    missionDescription: { type: String },
-    aboutImage: { type: String },
+    missionDescription: { type: String }
   },
   {
     timestamps:true
