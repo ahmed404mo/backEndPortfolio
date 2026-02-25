@@ -3,7 +3,7 @@ import { ProjectModel } from "../../DB/models/index.js"
 
 export const getAllProjects = async()=>{
   try {
-  const projects = await ProjectModel.find().toSorted({createdAt:-1})
+  const projects = await ProjectModel.find().sort({createdAt:-1})
   return projects
   
 } catch (err) {

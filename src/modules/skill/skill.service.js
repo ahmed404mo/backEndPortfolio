@@ -3,7 +3,7 @@ import { skillModel } from "../../DB/models/index.js"
 
 export const getAllSkillS = async()=>{
   try {
-  const Skills = await skillModel.find().toSorted({createdAt:-1})
+  const Skills = await skillModel.find().sort({createdAt:-1})
   return Skills
   
 } catch (err) {
