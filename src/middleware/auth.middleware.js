@@ -3,16 +3,19 @@ import { unauthorizedExpeption } from "../common/utils/response/error.response.j
 import { JWT_SECRET } from "../../config/config.service.js"
 
 const authMiddleware = (req, res, next) => {
-  const token = req.header("Authorization")
-  if (!token) {
-    unauthorizedExpeption("not allowed access to admin")
-  } 
-  try{
-    const verified = jwt.verify(token.replace("Bearer ",""),JWT_SECRET)
+  try {
+    const token = req.header("Authorization")
+    
+    if (!token) {
+      return unauthorizedExpeption("not allowed access to admin") // 👈 ضفنا return هنا للأمان
+    } 
+    
+    const verified = jwt.verify(token.replace("Bearer ",""), JWT_SECRET)
     req.user = verified
     next()
-  }catch(error){
-badrequestExpeption("invalid token4")
+    
+  } catch(error) {
+    return unauthorizedExpeption("invalid or expired token")
   }
 }
 
