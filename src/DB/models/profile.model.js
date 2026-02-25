@@ -18,7 +18,10 @@ const profileSchema = new mongoose.Schema(
     cvLink: { type: String },
     bio: { type: String },        
     github: { type: String },       
-    linkedin: { type: String }
+    linkedin: { type: String },
+    projectsCount: { type: String, default: "10+" },
+    certificatesCount: { type: String, default: "5+" },
+    skillsCount: { type: String, default: "15+" }
   },
   {
     timestamps:true
