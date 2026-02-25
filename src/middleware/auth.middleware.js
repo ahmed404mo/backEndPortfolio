@@ -4,19 +4,28 @@ import { JWT_SECRET } from "../../config/config.service.js"
 
 const authMiddleware = (req, res, next) => {
   try {
-const authHeader = req.header("Authorization");
-const token = authHeader && authHeader.split(" ")[1]; 
-
-if (!token) return unauthorizedExpeption("No token provided");
-
-const verified = jwt.verify(token, JWT_SECRET);
+    const authHeader = req.header("Authorization");
     
-    req.user = verified
-    next()
+    // 1. التأكد إن الهيدر موجود ويبدأ بـ Bearer
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return unauthorizedExpeption("No token provided or invalid format");
+    }
+
+    // 2. قص التوكن بدقة (بياخد النص اللي بعد المسافة)
+    const token = authHeader.split(" ")[1];
     
-  } catch(error) {
-    return unauthorizedExpeption("invalid or expired token")
+    // 3. فك التشفير
+    const verified = jwt.verify(token, JWT_SECRET);
+    
+    // 4. تخزين بيانات المستخدم في الـ Request
+    req.user = verified;
+    next();
+    
+  } catch (error) {
+    console.error("JWT Verify Error:", error.message);
+    // لو المشكلة في السر أو انتهاء الوقت هيرد هنا
+    return unauthorizedExpeption("invalid or expired token");
   }
 }
 
-export default authMiddleware
+export default authMiddleware;
