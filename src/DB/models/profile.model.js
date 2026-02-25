@@ -21,7 +21,11 @@ const profileSchema = new mongoose.Schema(
     linkedin: { type: String },
     projectsCount: { type: String, default: "10+" },
     certificatesCount: { type: String, default: "5+" },
-    skillsCount: { type: String, default: "15+" }
+    skillsCount: { type: String, default: "15+" },
+    pageMainTitle: { type: String },
+    pageSubtitle: { type: String },
+    missionTitle: { type: String },
+    missionDescription: { type: String }
   },
   {
     timestamps:true
