@@ -54,6 +54,7 @@ import { projectRouter } from './modules/project/index.js';
 import { messageRouter } from './modules/message/index.js';
 import { profileRouter } from './modules/profile/index.js';
 import { skillRouter } from './modules/skill/index.js';
+import { aboutRouter } from './modules/about/index.js';
 
 const app = express();
 
@@ -107,6 +108,7 @@ app.use("/project", projectRouter);
 app.use("/message", messageRouter);
 app.use("/profile", profileRouter);
 app.use("/skills", skillRouter);
+app.use("/about", aboutRouter);
 
 // 5. Global Error Handling
 app.use(globalErrorHandling);
