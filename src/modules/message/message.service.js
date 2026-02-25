@@ -24,9 +24,9 @@ export const createMessage = async(inputs)=>{
 export const getAllMessage = async()=>{
   try {
     
-    const allMessage = await MessageModel.find().sort({createdAt:-1})
+    const messages = await MessageModel.find().sort({createdAt:-1})
 
-    return allMessage
+    return messages
   } catch (error) {
     throw serverError()
   }

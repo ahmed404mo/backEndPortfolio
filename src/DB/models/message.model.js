@@ -21,7 +21,7 @@ const messageSchema = new mongoose.Schema(
       required:true,
             minLength: 2,
       trim: true,
-      default:Date.now
+      // default:Date.now
     },
 
   },
