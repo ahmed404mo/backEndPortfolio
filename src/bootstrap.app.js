@@ -91,7 +91,7 @@ app.use("/auth", authRouter);
 app.use("/project", projectRouter);
 app.use("/message", messageRouter);
 app.use("/profile", profileRouter);
-app.use("/skills", skillRouter); // تأكد إن الفرونت إند بيكلم /skills مش /skill
+app.use("/skills", skillRouter); 
 app.use("/about", aboutRouter);
 
 // 5. Global Error Handling
