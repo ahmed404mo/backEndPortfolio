@@ -16,6 +16,13 @@ const skillSchema = new mongoose.Schema(
             min:0,
             max:100,
     },
+  
+    category: { 
+    type: String, 
+    required: true, 
+    enum: ["technical", "educational"], // عشان نضمن إنك تختار واحد من الاتنين بس
+    default: "technical" 
+  },
   },
   {
     timestamps:true
