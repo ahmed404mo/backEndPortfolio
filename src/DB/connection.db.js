@@ -13,7 +13,7 @@ export const authenticateDB = async () => {
     const db = await mongoose.connect(DB_URI, {
       serverSelectionTimeoutMS: 5000, 
       socketTimeoutMS: 45000,
-      maxPoolSize: 50, 
+      maxPoolSize: 10, 
     });
 
     isConnected = db.connections[0].readyState === 1;
