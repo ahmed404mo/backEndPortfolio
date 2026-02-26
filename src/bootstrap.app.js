@@ -42,7 +42,6 @@
 // }
 
 // export default bootstrap
-
 import express from 'express';
 import cors from 'cors';
 import { globalErrorHandling } from './common/utils/response/error.response.js';
@@ -64,15 +63,19 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'Accept']
 }));
 
-// 🚨 التعديل السحري الأول: تكبير حجم الداتا عشان يقبل صور الـ Base64
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-// 2. Database Connection 
-// 🚨 التعديل السحري التاني: شيلنا الـ await عشان Vercel ميضربش إيرور 500
-authenticateDB()
-  .then(() => console.log("✅ Database authentication triggered"))
-  .catch((error) => console.error("❌ FATAL DB ERROR:", error.message));
+
+app.use(async (req, res, next) => {
+  try {
+    await authenticateDB(); 
+    next(); 
+  } catch (error) {
+    console.error("Database connection failed in middleware", error);
+    return res.status(500).json({ message: "Database Connection Failed" });
+  }
+});
 
 // 3. Basic Routes
 app.get('/', (req, res) => {
