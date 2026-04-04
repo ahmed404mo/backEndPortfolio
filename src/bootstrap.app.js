@@ -9,7 +9,7 @@ import { messageRouter } from './modules/message/index.js';
 import { profileRouter } from './modules/profile/index.js';
 import { skillRouter } from './modules/skill/index.js';
 import { aboutRouter } from './modules/about/index.js';
-import { certificateRouter } from './modules/certificate/certificate.service.js'; 
+import { certificateRouter } from './modules/certificate/index.js'; 
 import { upload, uploadToCloudinary } from './common/utils/cloudinary.config.js';
 
 const app = express();

@@ -1,11 +1,11 @@
 import { Router } from "express";
-import * as certificateController from "./certificate.controller.js";
+import * as certificateServices from "./certificate.service.js";
 
 const router = Router();
 
-router.get("/", certificateController.getCertificates);
-router.post("/", certificateController.addCertificate);
-router.put("/:id", certificateController.updateCertificate);
-router.delete("/:id", certificateController.deleteCertificate);
+router.get("/", certificateServices.getCertificates);
+router.post("/", certificateServices.addCertificate);
+router.put("/:id", certificateServices.updateCertificate);
+router.delete("/:id", certificateServices.deleteCertificate);
 
-export { router as certificateRouter };
+export default router;
