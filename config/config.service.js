@@ -7,14 +7,17 @@ try {
 }
 // dotenvConfig({ path: resolve("./config/.env.dev") });
 
-
 export const DB_URI = process.env.DB_URI;
 export const JWT_SECRET = process.env.JWT_SECRET;
 export const EMAIL = process.env.EMAIL;
 export const PASSWORD = process.env.PASSWORD;
-export const SALT_ROUND = parseInt(process.env.SALT_ROUND ?? '10')
-export const PORT = parseInt(process.env.PORT ?? '3000')
+export const SALT_ROUND = parseInt(process.env.SALT_ROUND ?? "10");
+export const PORT = parseInt(process.env.PORT ?? "3000");
 
 export const GMAIL_USER = process.env.GMAIL_USER;
 export const GMAIL_PASSWORD = process.env.GMAIL_PASSWORD;
 export const TOKEN_SIGNATURE = process.env.TOKEN_SIGNATURE;
+
+export const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
+export const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY;
+export const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET;
