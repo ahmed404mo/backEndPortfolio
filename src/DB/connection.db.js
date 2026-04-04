@@ -21,6 +21,7 @@ export const authenticateDB = async () => {
 
   } catch (error) {
     console.log(`❌ fail to connected on DB ${error}`);
-    throw error; 
+console.error("Error Message:", error.message);
+    throw error;
   }
 }
