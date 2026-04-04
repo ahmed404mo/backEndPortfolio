@@ -1,1 +1,2 @@
-export {default as certificateRouter} from "./certificate.controller.js"
+import certificateRouter from "./certificate.controller.js";
+export { certificateRouter };
