@@ -36,7 +36,15 @@ app.use(async (req, res, next) => {
     });
   }
 });
-
+// keep my data base play
+app.get("/keep-alive", async (req, res) => {
+  try {
+    await mongoose.connection.db.admin().ping();
+    res.status(200).json({ success: true, message: "MongoDB is awake and active! 🚀" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Failed to ping DB", error: error.message });
+  }
+});
 // 3. Upload Route
 app.post("/upload", upload.single("image"), async (req, res) => {
   try {
