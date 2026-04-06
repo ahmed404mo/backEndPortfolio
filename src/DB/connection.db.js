@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 import { DB_URI } from "../../config/config.service.js";
 
-let isConnected = false; 
-
 export const authenticateDB = async () => {
-  if (isConnected) return;
+  if (mongoose.connection.readyState >= 1) {
+    console.log("⚡ Using existing MongoDB connection");
+    return;
+  }
 
   try {
     mongoose.set('bufferCommands', false); 
@@ -14,8 +15,7 @@ export const authenticateDB = async () => {
       connectTimeoutMS: 10000,
     });
     
-    isConnected = true;
-    console.log("✅ MongoDB Connected");
+    console.log("✅ MongoDB Connected Successfully");
   } catch (error) {
     console.error("❌ Connection Fail:", error.message);
     throw error;
