@@ -11,7 +11,7 @@ import { skillRouter } from './modules/skill/index.js';
 import { aboutRouter } from './modules/about/index.js';
 import { certificateRouter } from './modules/certificate/index.js'; 
 import { upload, uploadToCloudinary } from './common/utils/cloudinary.config.js';
-
+import mongoose from 'mongoose';
 const app = express();
 
 app.use(cors({
